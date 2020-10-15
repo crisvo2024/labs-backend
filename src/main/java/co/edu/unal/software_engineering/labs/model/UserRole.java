@@ -24,7 +24,7 @@ class UserRole implements Serializable{
      * Constructors
      */
 
-    UserRole( ){
+    public UserRole( ){
         userRolePK = new UserRolePK( );
     }
 
