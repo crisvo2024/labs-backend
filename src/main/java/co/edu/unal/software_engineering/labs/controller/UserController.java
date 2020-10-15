@@ -31,6 +31,13 @@ public class UserController{
         this.passwordEncoder = passwordEncoder;
     }
 
+    @GetMapping(value = {"/usuario/getRoles"})
+    public ResponseEntity<?> getRoles() {
+        String username = SecurityContextHolder.getContext( ).getAuthentication( ).getName( );
+        User existingUser = userService.findByUsername( username );
+        return ResponseEntity.ok().body(existingUser.getRoles());
+    }
+
     @PostMapping( value = { "/registro/nuevo-usuario/rol/{roleId}" } )
     public ResponseEntity<Void> registerNewUser( @PathVariable Integer roleId, @RequestBody RegisterUserPOJO userPOJO ){
         Role role = roleService.findById( roleId );
