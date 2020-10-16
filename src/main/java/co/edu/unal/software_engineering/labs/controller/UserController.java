@@ -55,7 +55,7 @@ public class UserController{
         return new ResponseEntity<>( HttpStatus.CREATED );
     }
 
-    @PostMapping( value = { "/registro/nuevo-rol/{roleId}" }, consumes = MediaType.APPLICATION_JSON_VALUE )
+    @PostMapping( value = { "/principal/nuevo-rol/{roleId}" }, consumes = MediaType.APPLICATION_JSON_VALUE )
     public ResponseEntity<Void> registerRoleToUser( @PathVariable Integer roleId, @RequestBody LoginUserPOJO pojo ){
         Role role = roleService.findById( roleId );
         String username = SecurityContextHolder.getContext( ).getAuthentication( ).getName( );
