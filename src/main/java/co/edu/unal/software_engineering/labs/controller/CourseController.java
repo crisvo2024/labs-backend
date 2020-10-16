@@ -47,7 +47,7 @@ public class CourseController{
         return new ResponseEntity<>( HttpStatus.CREATED );
     }
 
-    @GetMapping(value = {"/user/courses"})
+    @GetMapping(value = {"/usuario/courses"})
     public ResponseEntity<?> getCourses( ){
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = userService.findByUsername(userDetails.getUsername());
